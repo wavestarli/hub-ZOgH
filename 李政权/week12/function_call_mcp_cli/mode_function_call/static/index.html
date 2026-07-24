@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skycall · 天气会话</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div>
+  <div class="haze" aria-hidden="true"></div>
+
+  <div class="shell">
+    <header class="top">
+      <div class="brand-block">
+        <p class="brand">Skycall</p>
+        <p class="tagline">Function Call 天气助手 · 一页一会话</p>
+      </div>
+      <div class="meta" id="sessionMeta">
+        <span class="pill" id="sessionPill">连接中…</span>
+        <span class="pill soft" id="memoryPill">记忆 0/6</span>
+        <span class="pill soft" id="activePill">在线 —</span>
+      </div>
+    </header>
+
+    <main class="stage">
+      <section class="intro" id="intro">
+        <h1>打开一个页面，就是一个独立会话。</h1>
+        <p>每个标签页拥有自己的短期记忆；关闭页面后会话与记忆一并销毁。可同时打开多个窗口模拟多人。</p>
+      </section>
+
+      <section class="transcript" id="transcript" aria-live="polite"></section>
+
+      <form class="composer" id="chatForm" autocomplete="off">
+        <label class="sr-only" for="question">提问</label>
+        <input
+          id="question"
+          name="question"
+          type="text"
+          placeholder="例如：宁德今天天气怎么样？ 或 那北京呢？"
+          maxlength="2000"
+          required
+        />
+        <button type="submit" id="sendBtn">发送</button>
+      </form>
+
+      <p class="hint">提示：先问一个城市，再用「那上海呢」验证短期记忆。关闭本页即销毁会话。</p>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
